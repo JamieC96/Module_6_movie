@@ -2,16 +2,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Movie Booking</title>
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Welcome to the Movie Booking System</h1>
+    <div class="container">
+    <h1>Welcome to Islandbridge Cinemas</h1>
     <p>To start, please login or sign up:</p>
 
-    <a href="{% url 'login' %}">Login</a> | 
+    <a href="{% url 'login' %}">Login</a> 
+    <br>
     <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
 </body>
 </html>

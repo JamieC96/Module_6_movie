@@ -3,13 +3,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Films - Movie Booking</title>
 </head>
 <body>
-    <h1>Available Films</h1>
-    <a href="{% url 'dashboard' %}">Go to Dashboard</a>
+    <div class="container">
+    <h1>Upcoming showings!</h1>
+    <a href="{% url 'dashboard' %}">Go to  your Dashboard</a>
     <ul>
         {% for film in films %}
             <li>
@@ -21,6 +24,7 @@
         {% csrf_token %}
         <button type="submit">Logout</button>
     </form>
+</div>
 </body>
 </html>
 

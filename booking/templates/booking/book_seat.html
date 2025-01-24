@@ -3,13 +3,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Seat - {{ film.title }}</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
     <h1>Book a Seat for "{{ film.title }}"</h1>
-
+    <p>{{ film.description }}</p>
     <h3>Available Seats:</h3>
     <form method="POST">
         {% csrf_token %}
@@ -28,5 +32,6 @@
     </form>
 
     <p><a href="{% url 'movie_list' %}">Back to Movie Listings</a></p>
+    </div>
 </body>
 </html>
