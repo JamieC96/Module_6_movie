@@ -1,0 +1,32 @@
+<!-- booking/templates/booking/book_seat.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Seat - {{ film.title }}</title>
+</head>
+<body>
+    <h1>Book a Seat for "{{ film.title }}"</h1>
+
+    <h3>Available Seats:</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="seat_id">Select a seat:</label>
+        <select name="seat_id" id="seat_id" required>
+            {% if available_seats %}
+                {% for seat in available_seats %}
+                    <option value="{{ seat.id }}">Seat {{ seat.seat_number }}</option>
+                {% endfor %}
+            {% else %}
+                <option disabled>No available seats</option>
+            {% endif %}
+        </select>
+    
+        <button type="submit">Book Seat</button>
+    </form>
+
+    <p><a href="{% url 'movie_list' %}">Back to Movie Listings</a></p>
+</body>
+</html>

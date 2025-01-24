@@ -1,0 +1,26 @@
+<!-- booking/templates/booking/movie_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Films - Movie Booking</title>
+</head>
+<body>
+    <h1>Available Films</h1>
+    <a href="{% url 'dashboard' %}">Go to Dashboard</a>
+    <ul>
+        {% for film in films %}
+            <li>
+                <a href="{% url 'book_seat' film.id %}">{{ film.title }}</a> - {{ film.genre }} - {{ film.showing_time }}
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
+

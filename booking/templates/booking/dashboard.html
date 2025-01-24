@@ -1,0 +1,29 @@
+<!-- booking/templates/booking/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard - Movie Booking</title>
+</head>
+<body>
+    <h1>Your Bookings</h1>
+    
+    <ul>
+    {% if bookings %}
+        {% for booking in bookings %}
+            <li>{{ booking.film.title }} - Seat {{ booking.seat.seat_number }} (Booked on {{ booking.booking_time }})</li>
+        {% endfor %}
+    {% else %}
+        <li>You have no bookings yet.</li>
+    {% endif %}
+    </ul>
+    
+    <a href="{% url 'movie_list' %}">Browse Movies</a>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
