@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'movie_booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'module_6', 
-        'USER': 'admin',  
-        'PASSWORD': 'admin', 
-        'HOST': 'localhost',
+        'NAME': 'movie_booking_db', 
+        'USER': 'movie_booking_db_user',  
+        'PASSWORD': '91DQVTQNiQZpGw6nPeKkQdqc9S9zAqLp', 
+        'HOST': 'dpg-cu9np1tumphs73cejl9g-a',
         'PORT': '5432',
     }
 }
